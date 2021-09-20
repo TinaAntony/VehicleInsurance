@@ -1,20 +1,27 @@
 package insurance_Motorcycle;
 
+import java.util.HashMap;
+
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import reusableComponents.ExcelOperations;
 import testBase.TestBase;
 
 public class E2E_Test_Motorcycle extends TestBase {
-	@Test
-	public void VehicleInsuranceCalc_Volvo() throws Exception
+	ExcelOperations excel = new ExcelOperations("VehicleInsuranceData");
+	@Test(dataProvider = "VehicleData")
+	public void VehicleInsuranceCalc_Volvo(Object objArray1) throws Exception
 	{
-		homePage.clickOnMotorcycleLink();
-		vehicleData.enterVehicleData();
-		vehicleData.clickNextButton();
-		insurantData.enterInsurantData();
-		insurantData.clickOnNextButton();
-		productData.enterProductData();
-		productData.clickNextButton();
+		HashMap <String, String> strVal = (HashMap<String, String>) objArray1;
+		System.out.println("Test Data :"+strVal);
+//		homePage.clickOnMotorcycleLink();
+//		vehicleData.enterVehicleData();
+//		vehicleData.clickNextButton();
+//		insurantData.enterInsurantData();
+//		insurantData.clickOnNextButton();
+//		productData.enterProductData();
+//		productData.clickNextButton();
 	}
 	
 	
@@ -23,6 +30,19 @@ public class E2E_Test_Motorcycle extends TestBase {
 //	{
 //		homePage.clickOnMotorcycleLink();
 //		
+//		
 //	}
+	
+	@DataProvider(name = "VehicleData")
+	public Object[][] testDataSupplier() throws Exception
+	{
+		Object[][] objArray = new Object[excel.getRowCount()][1];
+		for (int i =1; i<=excel.getRowCount(); i++)
+		{
+			HashMap<String, String> testSetVal = excel.getTestDatainHashMap(i);
+			objArray[i-1][0] = testSetVal;
+		}
+		return objArray;
+	}
 
 }

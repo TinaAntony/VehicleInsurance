@@ -17,7 +17,7 @@ public class Err_Test_MotorCycle extends TestBase{
 		vehicleData.enterCylindricalCap("30000");
 		test.log(Status.PASS, "Cyclindar capacity entered as 30000");
 		String actualErrorMsg = vehicleData.getErrorMsgOnCylinderCapacity();
-		String expectedErrorMsg = "Must be a number between 1 and 2000";
+		String expectedErrorMsg = "Must be a number between 1 and 6000";
 		Assert.assertEquals(expectedErrorMsg, actualErrorMsg);
 	}
 
