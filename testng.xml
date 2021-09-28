@@ -10,7 +10,7 @@
 
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="insurance_Motorcycle.E2E_Test_Motorcycle" />
+			<class name="insurance_Motorcycle.Err_Test_Motorcycle" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
