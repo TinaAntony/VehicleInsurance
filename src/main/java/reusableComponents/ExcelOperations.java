@@ -1,10 +1,10 @@
 package reusableComponents;
 
 import java.io.File;
-import java.io.IOException;
+
 import java.util.HashMap;
 
-import org.apache.poi.EncryptedDocumentException;
+
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -33,6 +33,7 @@ public class ExcelOperations {
 		//VehicleInsuranceData
 	}
 	
+	@SuppressWarnings("deprecation")
 	public HashMap <String, String> getTestDatainHashMap(int RowNo) throws Exception	
 	{
 		

@@ -14,10 +14,11 @@ public class ExtentSetup extends objectsRepo {
 	
 	public static ExtentReports setUpExtentReport()
 	{
-		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yy hh-mm-ss");
-		Date date = new Date();
-		String actualdate = format.format(date);
-		String strReportPath = System.getProperty("user.dir")+"/Reports/ExecutionReport_"+actualdate+".html";
+		//SimpleDateFormat format = new SimpleDateFormat("dd-MM-yy hh-mm-ss");
+		//Date date = new Date();
+		//String actualdate = format.format(date);
+		//String strReportPath = System.getProperty("user.dir")+"/Reports/ExecutionReport_"+actualdate+".html";
+		String strReportPath = System.getProperty("user.dir")+"/Reports/ExecutionReport.html";
 		ExtentSparkReporter sparkReport = new ExtentSparkReporter(strReportPath);
 		extent = new ExtentReports();
 		extent.attachReporter(sparkReport);

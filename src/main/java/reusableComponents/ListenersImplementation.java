@@ -58,6 +58,19 @@ public class ListenersImplementation extends objectsRepo implements ITestListene
 
 	public void onTestSuccess(ITestResult result) {
 		test.log(Status.PASS, "Test case :"+ result.getMethod().getMethodName() +" is passed");
+		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yy hh-mm-ss");
+		Date date = new Date();
+		String actualdate = format.format(date);
+		String screenshotpath = System.getProperty("user.dir")+"/Reports/Screenshots/"+actualdate+".jpeg";
+		File destination = new File(screenshotpath);
+		try {
+			FileUtils.copyFile(src, destination);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		test.addScreenCaptureFromPath(screenshotpath, "Test case failure screenshot");
 		
 	}
 	

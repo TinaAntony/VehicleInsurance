@@ -2,6 +2,7 @@ package insurance_Motorcycle;
 
 import java.util.HashMap;
 
+import org.junit.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -13,10 +14,13 @@ public class E2E_Test_Motorcycle extends TestBase {
 	@Test(dataProvider = "VehicleData")
 	public void VehicleInsuranceCalc_Volvo(Object objArray1) throws Exception
 	{
+		@SuppressWarnings("unchecked")
 		HashMap <String, String> strVal = (HashMap<String, String>) objArray1;
 		System.out.println("Test Data :"+strVal);
-//		homePage.clickOnMotorcycleLink();
-//		vehicleData.enterVehicleData();
+		homePage.clickOnMotorcycleLink();
+		vehicleData.enterVehicleData(strVal);
+		//String expectedErrorMsg = "Must be a number between 1 and 6000";
+		Assert.assertEquals("Tina", "Tina");
 //		vehicleData.clickNextButton();
 //		insurantData.enterInsurantData();
 //		insurantData.clickOnNextButton();

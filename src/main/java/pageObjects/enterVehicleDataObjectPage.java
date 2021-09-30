@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.HashMap;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -45,16 +47,16 @@ public class enterVehicleDataObjectPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void enterVehicleData() throws Exception
+	public void enterVehicleData(HashMap <String, String> strVal) throws Exception
 	{
-		cm.selectDropDownOptions(dd_make, "Volvo");
-		cm.selectDropDownOptions(dd_model, "Motorcycle");
-		txt_cylindercapacity.sendKeys("216");
-		txt_engineperformance.sendKeys("234");
-		date_dateofmanufacture.sendKeys("12/10/2000");
-		cm.selectDropDownOptions(dd_numberofseatsmotorcycle, "2");
-		txt_listprice.sendKeys("23000");
-		txt_annualmileage.sendKeys("35000");
+		cm.selectDropDownOptions(dd_make, strVal.get("Make"));
+		cm.selectDropDownOptions(dd_model, strVal.get("Model"));
+		txt_cylindercapacity.sendKeys(strVal.get("Cylindercapacity"));
+		txt_engineperformance.sendKeys(strVal.get("EnginePerformance"));
+		date_dateofmanufacture.sendKeys(strVal.get("DateOfManufacture"));
+		cm.selectDropDownOptions(dd_numberofseatsmotorcycle, strVal.get("NoofSeatsMotorcycle"));
+		txt_listprice.sendKeys(strVal.get("Listprice"));
+		txt_annualmileage.sendKeys(strVal.get("Annualmileage"));
 		
 	}
 	
@@ -70,6 +72,7 @@ public class enterVehicleDataObjectPage extends TestBase {
 	
 	public String getErrorMsgOnCylinderCapacity()
 	{
+		System.out.println("Error message: "+err_CylinderCapacity.getText());
 		return err_CylinderCapacity.getText();
 	}
 

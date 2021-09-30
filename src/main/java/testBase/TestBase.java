@@ -55,6 +55,6 @@ public class TestBase extends objectsRepo {
 	@AfterMethod
 	public void cleanUp()
 	{
-		//driver.quit();
+		driver.quit();
 	}
 	}
